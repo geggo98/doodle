@@ -25,6 +25,6 @@ object ScatterPlot {
   object circle {
     val data: List[Point] =
       (for(a <- 0 to 360 by 5) yield { Point(1.0, a.degrees) }).toList
-    val image = Chart.scatterPlot(data.toSeries).asImage
+    val image = Chart.scatterPlot(data.toSeries.withShape(Image.triangle(5,5))).asImage
   }
 }

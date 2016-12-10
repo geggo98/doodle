@@ -26,8 +26,9 @@ object StandardInterpreter {
     val alpha = 0.8.normalized
     val line = Color.navy.alpha(alpha)
     val fill = Color.royalBlue.alpha(alpha)
+    val shape = series.shape.getOrElse(Image.circle(5))
     val pts = series.data.foldLeft(Image.empty){ (accum, pt) =>
-      val marker = (Image.circle(5).lineColor(line).fillColor(fill))
+      val marker = (shape.lineColor(line).fillColor(fill))
       val loc = Vec(xLerp(pt.x), yLerp(pt.y))
       (marker at loc) on accum
     }
